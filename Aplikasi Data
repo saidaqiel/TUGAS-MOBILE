@@ -9,33 +9,35 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text('6SIA10'),
         ),
-        body: Siswa(),
+        body: Karyawan(),
       ),
     );
   }
 }
 
-class DataSiswa{
+class DataKaryawan{
   
+  String kode;
   String nama;
-  String kelas;
+  String umur;
   String jkelamin;
   
   
-  DataSiswa({ this.nama, this.kelas, this.jkelamin});
+  DataKaryawan({ this.kode, this.nama, this.umur, this.jkelamin});
   
 }
 
-// class Siswa
-class Siswa extends StatefulWidget {
+// class Karyawan
+class Karyawan extends StatefulWidget {
   _MyappState createState() => _MyappState();
 }
 
-class _MyappState extends State<Siswa> {
+class _MyappState extends State<Karyawan> {
   //deklarasi variabel
-  final txtnamasiswa = TextEditingController();
-  final txtjurusan = TextEditingController();
-  final txtSKS = TextEditingController();
+  final txtkodekaryawan = TextEditingController();
+  final txtnamakaryawan = TextEditingController();
+  final txtbagian = TextEditingController();
+  final txtTITEL = TextEditingController();
   
 
   List<Widget> data = [];
@@ -44,12 +46,14 @@ class _MyappState extends State<Siswa> {
     setState(() {
       data.add(ListTile(
         leading: Text(txtalamat.text),
-        title: Text(txtnamasiswa.text),
-        subtitle: Text(txtkelas.text),
+        title: Text(txtnamakaryawan.text),
+        subtitle: Text(txtkode.text),
+        subtitle: Text(txtumur.text),
         trailing: Text(txtjkelamin.text),
       ));
-      txtnamasiswa.clear();
-      txtkelas.clear();
+      txtkode.clear();
+      txtnamakaryawan.clear();
+      txtumur.clear();
       txtjkelamin.clear();
       txtalamat.clear();
     });
@@ -65,12 +69,16 @@ class _MyappState extends State<Siswa> {
             children: <Widget>[
            
               TextField(
-                controller: txtnamasiswa,
-                decoration: InputDecoration(hintText: 'Nama Siswa'),
+                controller: txtkode,
+                decoration: InputDecoration(hintText: 'Kode Karyawan'),
               ),
               TextField(
-                controller: txtkelas,
-                decoration: InputDecoration(hintText: 'Kelas'),
+                controller: txtnamakaryawan,
+                decoration: InputDecoration(hintText: 'Nama Karyawan'),
+              ),
+              TextField(
+                controller: txtumur,
+                decoration: InputDecoration(hintText: 'Umur'),
               ),
               TextField(
                 controller: txtjkelamin,
